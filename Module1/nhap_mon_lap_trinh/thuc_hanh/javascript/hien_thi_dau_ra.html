@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị đầu ra</title>
+</head>
+<body>
+    <h2>Bài tập 1: Hiển thị kết quả sử dụng hàm alert()</h2>
+    <button type="button" onclick="sendMessage()">click me!</button>
+
+    <h2>Bài tập 2:hiển thị lời nhắn</h2>
+    <div id="showMessageDiv"></div>
+    <button type="button" onclick="showMessage()">Show</button>
+
+    <h2>Bài tập 3: Hiển thị kết quả sử dụng hàm document.write()</h2>
+    <button type="button" onclick="showByWrite()">Show</button>
+
+    <h2>Bài tập 4:Hiển thị kết quả sử dụng hàm console.log()</h2>
+    <button type="button" onclick="showMessage2();">ShowConsole</button>
+    <script>
+        function sendMessage() {
+            alert("xin chào javascript");
+        }
+        function showMessage() {
+            document.getElementById('showMessageDiv').innerHTML="Xin chào các bạn";
+        }
+        function showByWrite() {
+            document.write("xin chào cả lớp");
+        }
+        function showMessage2(){
+            console.log('Xin chào!');
+        }
+    </script>
+</body>
+</html>

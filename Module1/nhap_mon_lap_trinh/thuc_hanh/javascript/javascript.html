@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Làm quen với js</title>
+</head>
+<body>
+    <h2>Làm quen với javascript</h2>
+    <div id="messageDiv"></div>
+    <button type="button" onclick="sendMessage()">click me!</button>
+    <script>
+        function sendMessage() {
+            alert("xin chào javascript");
+        }
+        function showMessage(){
+            document.getElementById('messageDiv').innerHTML = 'Xin chào!';
+        }
+    </script>
+</body>
+</html>
