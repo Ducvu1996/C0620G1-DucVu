@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền</title>
+</head>
+<body>
+    <h2>Ứng dụng chuyển đổi tiền tệ</h2>
+    <form method="post">
+        <label> Amount</label>
+        <input type="text" id="amount">
+
+        <label> From Currency</label>
+        <select id="from">
+            <option value="vietnam">Vietnam</option>
+            <option value="usd" selected >USD</option>
+        </select>
+
+        <label> To Currency</label>
+        <select id="to">
+            <option value="vietnam">Vietnam</option>
+            <option value="usd">USD</option>
+        </select>
+<!--        <input type="text" value=>-->
+        <input type="button" value="Convert" onclick="getData()">
+        <div id="result"></div>
+
+    </form>
+    <script src="chuyen_doi_tien_te.js"></script>
+<script>
+</script>
+</body>
+</html>
