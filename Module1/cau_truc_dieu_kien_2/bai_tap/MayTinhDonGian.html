@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+</head>
+<body>
+    <h2>Máy tính đơn giản</h2>
+    <form>
+        <input type="text" disabled id= "result" ><br/>
+        <input type="button" id="one" value= "1" onclick="result.value+=this.value">
+        <input type="button" id="two" value= "2" onclick="buttonTwo()">
+        <input type="button" id="three" value= "3" onclick="buttonThree()">
+        <input type="button" id="plus" value= "+" onclick="buttonPlus()"> <br/>
+
+        <input type="button" id="four" value= "4" onclick="buttonFour()">
+        <input type="button" id="five" value= "5" onclick="buttonFive()">
+        <input type="button" id="six" value= "6" onclick="buttonSix()">
+        <input type="button" id="minus" value= "-" onclick="buttonMinus()"> <br/>
+
+        <input type="button" id="seven" value= "7" onclick="buttonSeven()">
+        <input type="button" id="eight" value= "8" onclick="buttonEight()">
+        <input type="button" id="nine" value= "9" onclick="buttonNine()">
+        <input type="button" id="multiply" value= "*" onclick="buttonMultiply()"><br/>
+
+        <input type="button" id="clear" value= "C" onclick="buttonClear()">
+        <input type="button" id="zero" value= "0" onclick="buttonZero()">
+        <input type="button" id="equal" value= "=" onclick="buttonEqual()">
+        <input type="button" id="divide" value="/" onclick="buttonDivide()"><br/>
+    </form>
+    <style>
+        form{
+            width: 255px;
+            height: 300px;
+            border: solid 2px blue;
+        }
+        input{
+
+            width: 30px;
+            height: 30px;
+            position: relative;
+            margin: 15px;
+            border: solid 2px grey;
+        }
+        input:hover{
+            background-color: #5f6062;
+        }
+        #result{
+            width: 210px;
+            height: 30px;
+        }
+    </style>
+</body>
+<script src="MayTinhDonGian.js"></script>
+</html>
