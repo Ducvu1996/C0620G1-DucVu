@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In tam giác vuông</title>
+</head>
+<body>
+
+</body>
+<script>
+// tam giác 1
+    for(let i=0;i<=4;i++){
+        for(let j=0;j<=i;j++){
+            document.write("*");
+        }
+        document.write("<br>")
+    }
+    document.write("<br><br>");
+// tam giác 2
+    for(let i=4;i>=0;i--){
+        for(let j=0;j<=i;j++){
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br><br>");
+// tam giác 3
+    document.write("<table>");
+
+    for(let i=4;i>=0;i--){
+        document.write("<tr>");
+        for(let j=0;j<=i;j++){
+            document.write("<td>");
+            document.write("");
+            document.write("</td>");
+        }
+        for(let j=4;j>=i;j--){
+            document.write("<td>");
+            document.write("*");
+            document.write("</td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+
+    document.write("<br><br>");
+// tam giác 4
+    document.write("<table>");
+
+    for(let i=0;i<=4;i++){
+        document.write("<tr>");
+        for(let j=0;j<=i;j++){
+            document.write("<td>");
+            document.write("");
+            document.write("</td>");
+        }
+        for(let j=4;j>=i;j--){
+            document.write("<td>");
+            document.write("*");
+            document.write("</td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+</html>

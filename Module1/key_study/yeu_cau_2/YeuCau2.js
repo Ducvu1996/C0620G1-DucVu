@@ -7,8 +7,46 @@ let address = "Đà Nẵng";
 let typeService = "Villa";// House, Room
 let typeRoom = "Vip"; //Business, Normal
 let typeCustomer = "Diamond";// Platinum , Gold, Silver, Member
-let discount;
+let discount =0;
 let rendDays = 7;
+// tính discount
+//theo address
+if(address=='Đà Nẵng'){
+    discount = discount +20;
+}else if(address=='Huế'){
+    discount=discount+10;
+}else if(address=='Quảng Nam'){
+    discount=discount+5;
+}
+// theo số ngày thuê
+if(rendDays>=7){
+    discount+=30;
+}else if(rendDays>=5&&rendDays<7){
+    discount+=20;
+}else if(rendDays>=2&&rendDays<=4){
+    discount+=10;
+}
+//theo typeCustomer
+if(typeCustomer=='Diamond'){
+    discount+=15;
+}else if(typeCustomer=='Platinum'){
+    discount+=10;
+}else if(typeCustomer=='Gold'){
+    discount+=5;
+}else if(typeCustomer=='Silver'){
+    discount+=2;
+}
+
+let currentYear = new Date().getFullYear();
+let  yearOfBirth= new Date(birthday).getFullYear();
+let ageCustomer = currentYear - yearOfBirth;
+if(ageCustomer>=30){
+    discount+=2;
+}else if(ageCustomer>=20&&ageCustomer<30){
+    discount+=1;
+}
+//theo birthday
+
 choice();
 
 function choice() {
@@ -26,7 +64,7 @@ function choice() {
             choice();
             break;
         case 3:
-            amount();
+            total();
             break;
         default:
             alert("failed");
@@ -34,11 +72,6 @@ function choice() {
     }
 
 }
-
-function amount() {
-
-}
-
 function edit() {
     let choice = parseInt(prompt("nhập lựa chọn của bạn:\n" +
         "1: Sửa tên khách hàng.\n" +
@@ -97,4 +130,15 @@ function show() {
         'typeCustomer:' + typeCustomer + '\n' +
         'rendDays:' + rendDays + '\n'
     );
+}
+function total() {
+    let totalPay=0;
+    if(typeService=='Villa'){
+        totalPay= 500*rendDays-discount;
+    }else if(typeService=='House'){
+        totalPay=300*rendDays-discount;
+    }else if(typeService=='Room'){
+        totalPay=100*rendDays-discount;
+    }
+    alert("số tiền khách phải trả là:"+totalPay + '$');
 }

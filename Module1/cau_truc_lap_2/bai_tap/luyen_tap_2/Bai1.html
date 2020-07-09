@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+
+</body>
+<script>
+    let count = 0;
+    let f0=0;
+    let f1=1;
+    document.write(f0+'<br>');
+    document.write(f1+'<br>');
+    let f2;
+    let sum = 0;
+    while(count<100){
+        f2=f0+f1;
+        f0=f1;
+        f1=f2;
+        document.write(f2+'<br>');
+        count++;
+    }
+</script>
+</html>

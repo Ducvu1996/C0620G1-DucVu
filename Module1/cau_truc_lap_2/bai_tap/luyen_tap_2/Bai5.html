@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tĩnh lãi ngân hàng</title>
+</head>
+<body>
+
+</body>
+<script>
+    let fund=parseInt(prompt("nhập vào tiền vốn ban đầu"));
+    let years=parseInt(prompt("nhập vào số năm bạn cần gửi"));
+
+
+
+    for(let i = 1; i < years; i++)
+    {
+        fund = fund + i * 4 / 100;
+    }
+
+    alert("số tiền lãi sau khi bạn gửi là: "+ fund);
+</script>
+</html>
