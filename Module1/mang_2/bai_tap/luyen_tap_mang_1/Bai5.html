@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str=prompt("nhập vào một chuỗi");
+    let arr=str.split("");
+    document.write(arr);
+    let count=0;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]=="u"||arr[i]=="e"||arr[i]=="o"||arr[i]=="a"||arr[i]=="i"){
+            count ++;
+        }
+    }
+    document.write("<br>số nguyên âm trong chuổi là:" +count);
+</script>
+</html>

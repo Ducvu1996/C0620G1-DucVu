@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+
+</body>
+    <script>
+        let arr =new Array(10);
+
+        for(let i=0; i<arr.length;i++){
+            arr[i]=prompt("phần tử thứ "+(i+1));
+        }
+        document.write(arr);
+        let nums=parseInt(prompt("nhập vào 1 số V"));
+        for(let i=0; i<arr.length;i++){
+            if(arr[i]==nums){
+                alert("Số V có trong mảng");
+                break;
+            }else{
+                alert("số V không có trong mảng");
+            }
+        }
+    </script>
+</html>

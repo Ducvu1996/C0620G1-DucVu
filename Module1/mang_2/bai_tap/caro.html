@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cờ CaRo</title>
+</head>
+<body>
+<h2> Game Cờ CaRo</h2>
+​
+<p id="caroGame"></p>
+​
+</body>
+<script>
+    let print = document.getElementById("caroGame");
+    let board = new Array(6);
+    let data = "";
+    for (let i = 0; i <= 6; i++) {
+        board[i] = new Array(6);
+        board[i] = ["*", "*", "*", "*", "*"];
+    }
+    for (let i = 0; i <= 4; i++) {
+        data += "<br/>";
+        for (let j = 0; j <= 4; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+​
+    data += "<br/><br/><input type='button' value='Player1' onclick='changePlayer1()'>";
+    data += "<br/><br/><input type='button' value='Player2' onclick='changePlayer2()'>";
+​
+    print.innerHTML = data;
+​
+    function changePlayer1() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        data = "";
+        if (board[positionX][positionY] !== "o" && board[positionX][positionY] !== "x") {
+            board[positionX][positionY] = "x";
+        }
+        for (let i = 0; i <= 4; i++) {
+            data += "<br/>";
+            for (let j = 0; j <= 4; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+​
+        }
+        data += "<br/><br/><input type='button' value='Player1' onclick='changePlayer1()'>"
+        data += "<br/><br/><input type='button' value='Player2' onclick='changePlayer2()'>";
+        print.innerHTML = "<hr/>" + data;
+        if (check()) {
+            alert("người chơi 1 chiến thắng")
+        }
+​
+    }
+​
+    function changePlayer2() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        data = "";
+        if (board[positionX][positionY] !== "x" && board[positionX][positionY] !== "o") {
+            board[positionX][positionY] = "o";
+        }
+        for (let i = 0; i <= 4; i++) {
+            data += "<br/>";
+            for (let j = 0; j <= 4; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data += "<br/><br/><input type='button' value='Player1' onclick='changePlayer1()'>"
+        data += "<br/><br/><input type='button' value='Player2' onclick='changePlayer2()'>";
+        print.innerHTML = "<hr/>" + data;
+        if (check()) {
+            alert("người chơi 2 chiến thắng")
+        }
+    }
+​
+    function check() {
+        for (let i = 0; i <= 4; i++) {
+            for (let j = 0; j <= 4; j++) {
+                if (board[i][j] === "x" && board[i][j + 1] === "x" && board[i][j + 2] === "x") {
+                    return true;
+                }
+                if (board[i][j] === "x" && board[i + 1][j] === "x" && board[i + 2][j] === "x") {
+                    return true;
+                }
+                if (board[i][j] === "o" && board[i][j + 1] === "o" && board[i][j + 2] === "o") {
+                    return true;
+                }
+                if (board[i][j] === "o" && board[i + 1][j] === "o" && board[i + 2][j] === "o") {
+                    return true;
+                }
+                if (board[i][j] === "o" && board[i + 1][j + 1] === "o" && board[i + 2][j + 2] === "o") {
+                    return true;
+                }
+                if (board[i][j] === "x" && board[i + 1][j + 1] === "x" && board[i + 2][j + 2] === "x") {
+                    return true;
+                }
+                if (board[i][j+2] === "o" && board[i + 1][j + 1] === "o" && board[i + 2][j] === "o") {
+                    return true;
+                }
+                if (board[i][j+2] === "x" && board[i + 1][j + 1] === "x" && board[i + 2][j] === "x") {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+​
+</script>
+</html>

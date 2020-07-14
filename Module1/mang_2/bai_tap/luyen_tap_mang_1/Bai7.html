@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arr =new Array(10);
+
+    for(let i=0; i<arr.length;i++){
+        arr[i]=prompt("phần tử thứ "+(i+1));
+    }
+    let locations;
+    let nums=parseInt(prompt("nhập vào 1 số V"));
+    for(let i=0; i<arr.length;i++){
+        if(arr[i]==nums){
+           arr[i]=0;
+           locations=i;
+        }
+    }
+    for(let i=locations; i<arr.length;i++){
+        arr[i]=arr[i+1];
+    }
+    arr.pop();
+    document.write(arr);
+</script>
+</html>

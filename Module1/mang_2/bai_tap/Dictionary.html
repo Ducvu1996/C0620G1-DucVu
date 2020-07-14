@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+
+</body>
+<script>
+    let vocabulary = prompt("nhập vào từ tiếng anh bạn cần tìm");
+    let english= ["eat","sleep","study","code"];
+    let vietnamese=["ăn","ngủ","học","lập trình"];
+
+
+
+
+    let count=0;
+    for (let i = 0; i < english.length; i++) {
+        if (vocabulary === english[i]) {
+            alert(vietnamese[i]);
+            count++;
+            break;
+
+        }
+    }
+    if(count==0){
+        alert("không tìm thấy");
+    }
+
+
+</script>
+</html>

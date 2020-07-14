@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arr = new Array(10);
+    for(let i=0;i<arr.length;i++){
+        arr[i]= prompt("ký tự thứ"+(i+1));
+    }
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]==="-"){
+            arr[i]="_";
+        }
+    }
+    document.write(arr);
+
+</script>
+</html>

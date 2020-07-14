@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str1= prompt("nhập vào chuổi 1");
+    let str2= prompt("nhập vào chuổi 2");
+    let arr1=str1.split("");
+    let arr2=str2.split("");
+    document.write(arr1);
+    document.write("<br>");
+    document.write(arr2);
+    count=0;
+    if(arr1.length==arr2.length) {
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] == arr2[i]) {
+                count++;
+            }
+        }
+        if(count==arr1.length){
+            alert("giống nhau");
+        }
+        else {
+            alert("khác nhau");
+        }
+    }else{
+        alert("khác nhau")
+    }
+</script>
+</html>
