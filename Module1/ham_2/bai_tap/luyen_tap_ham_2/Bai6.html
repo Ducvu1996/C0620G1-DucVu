@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+
+</body>
+<script>
+    function isPositive(number) {
+        if(isNaN(number)!=true&&number!=''&& number>0&&number-parseInt(number)==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    let number= prompt("nhập vào 1 số");
+    if(isPositive(number)==true){
+        alert("số vừa nhập là số nguyên dương");
+    }else {
+        alert("đây không phải số nguyên dương");
+    }
+
+</script>
+</html>

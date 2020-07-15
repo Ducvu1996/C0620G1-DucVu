@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        function isNumber(number) {
+            if(isNaN(number)==true || number==''){
+                return false;
+            }
+            return true;
+        }
+
+        nums=prompt("nhập vào 1 số");
+        if(isNumber(nums)==true){
+            alert("đây là ký tự số");
+        }else{
+            alert("đây không phải số");
+        }
+    </script>
+</body>
+</html>

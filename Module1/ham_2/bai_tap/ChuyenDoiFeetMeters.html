@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi</title>
+</head>
+<body>
+
+<form>
+    <p>
+        <label>Feet</label>
+        <input id="inputFeet" type="number" placeholder="Fahrenheit"
+               oninput="feetConverter(this.value)"
+               onchange="temperatureConverter(this.value)">
+    </p>
+    <p>Meters: <span id="outputMeters"></span></p>
+    <p>
+        <label>Meters</label>
+        <input id="inputMeters" type="number" placeholder="Fahrenheit"
+               oninput="meterConverter(this.value)"
+               onchange="meterConverter(this.value)">
+    </p>
+    <p>Feet: <span id="outputFeet"></span></p>
+</form>
+
+<script>
+
+    function feetConverter(feet) {
+        feet = parseFloat(feet);
+        document.getElementById("outputMeters").innerHTML = feet*0.305 +"m";
+    }
+
+    function meterConverter(meter) {
+        meter = parseFloat(meter);
+        document.getElementById("outputFeet").innerHTML = meter*3.279 +"f";
+
+    }
+
+</script>
+</body>
+</html>

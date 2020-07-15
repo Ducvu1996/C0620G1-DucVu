@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <h3>Add a new product</h3>
+    <form id="formAdd">
+        <input type="text" id="newProduct" placeholder="New product ">
+        <input type="button" id="add" value="ADD" onclick="addProduct()">
+    </form>
+
+    <h3>Display all product</h3>
+    <p id="display"></p>
+
+</head>
+<body>
+<style>
+
+</style>
+</body>
+<script>
+    let products= new Array("Sony Xperia","Samsung Galaxy","Nokia 6",
+                            "Xiaomi Redmi Note 4","Apple Iphone 6",
+                            "Xiaomi Mi 5 Plus","Apple Iphone 8 Plus","Oppo A71");
+    display();
+    function display() {
+        let tableString='<table border="1px">';
+            tableString+='<tr>';
+                tableString+='<td >'+ 'STT'+'</td>';
+                tableString+='<td >'+ "Product name"+'</td>';
+                tableString+='<td colspan="2">'+ "Function"+'</td>';
+            tableString+='</tr>';
+        for (let i=0;i<products.length;i++){
+            tableString+='<tr >'
+
+                tableString+='<td style="height: 20px; width: 50px">'+ (i+1)+'</td>';
+                tableString+='<td style="height: 20px; width: 200px">'+ products[i]+'</td>';
+                tableString+='<td>'+'<input type="button" value="EDIT" onclick="edit('+i+')">'+'</td>'
+                tableString+='<td>'+'<input type="button" value="DELETE" onclick="del('+i+')">'+'</td>'
+            tableString+='</tr>';
+
+        }
+        tableString+='</table>';
+        document.getElementById("display").innerHTML=tableString;
+    }
+
+    function addProduct() {
+
+
+        let  newProduct= document.getElementById("newProduct").value;
+        if(newProduct!="") {
+            products.push(newProduct);
+
+            display();
+            alert("bạn vừa thêm sản phẩm mới");
+        }
+    }
+
+    function edit(i) {
+        let editProduct=prompt("nhập thay đổi");
+        if(editProduct!="") {
+            products[i] = editProduct;
+            display();
+        }
+    }
+    function del(i) {
+        let question=  confirm("bạn có chắc muốn xóa sản phẩm này không?")
+        if (question==true) {
+            products.splice(i, 1);
+            display();
+        }
+
+    }
+</script>
+</html>

@@ -1,4 +1,19 @@
-let name = prompt("nhập tên:");
+let name = chuanHoaDuLieu(prompt("nhập tên:"));
+alert(name);
+function chuanHoaDuLieu(nhapDuLieu) {
+    let duLieuChuan = "";
+    nhapDuLieu = nhapDuLieu.toLowerCase();
+    for (let i = 0; i < nhapDuLieu.length; i++) {
+        if (nhapDuLieu.charAt(i) === " " && nhapDuLieu.charAt(i + 1) === " ")
+            continue;
+        if (i === 0 || nhapDuLieu.charAt(i - 1) === " ") {
+            duLieuChuan += nhapDuLieu.charAt(i).toUpperCase();
+            continue;
+        }
+        duLieuChuan += nhapDuLieu.charAt(i);
+    }
+    return duLieuChuan;
+}
 let cmnd;
 let birthday;
 let check=false;
@@ -23,13 +38,16 @@ check=false;
 
 do{
     birthday = prompt("nhập ngày sinh:");
-    //let  re = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/;
+    // let  re = /^(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}$/
     let  re = /^[0-2]?[0-9]\/[0]?[1-9]\/[12][90][0-9][0-9]$/;
     let  re2 = /^[0-2]?[0-9]\/[1]?[0-2]\/[12][90][0-9][0-9]$/;
-    let  re3 = /^[3]?[0-1]\/[0]?[1-9]\/[12][90][0-9][0-9]$/;
-    let  re4 = /^[3]?[0-1]\/[1]?[0-2]\/[12][90][0-9][0-9]$/;
+    let  re3 = /^[3]?[1]\/[0]?[13578]\/[12][90][0-9][0-9]$/;
+    let  re4 = /^[3]?[1]\/[1]?[02]\/[12][90][0-9][0-9]$/;
+    let  re5 = /^[3]?[0]\/[0]?[469]\/[12][90][0-9][0-9]$/;
+    let  re6 = /^[3]?[0]\/[1]?[1]\/[12][90][0-9][0-9]$/;
 
-    if(birthday!=''&&!birthday.match(re)&&!birthday.match(re2)&&!birthday.match(re3)&&!birthday.match(re4)){
+
+   if(birthday!=''&&!birthday.match(re)&&!birthday.match(re2)&&!birthday.match(re3)&&!birthday.match(re4)&&!birthday.match(re5)&&!birthday.match(re6)){
         alert("bạn nhập sai định dạng ");
     }else{
         check=true;
@@ -50,10 +68,10 @@ do{
 }while(!check);
 check=false;
 
-let address = prompt("nhập địa chỉ:");
-let typeService = prompt("nhập loại dịch vụ:");
-let typeRoom = prompt("nhập loại phòng: ");
-let typeCustomer = prompt("nhập loại khách hàng:");
+let address = chuanHoaDuLieu(prompt("nhập địa chỉ:"));
+let typeService = chuanHoaDuLieu(prompt("nhập loại dịch vụ:"));
+let typeRoom = chuanHoaDuLieu(prompt("nhập loại phòng: "));
+let typeCustomer = chuanHoaDuLieu(prompt("nhập loại khách hàng:"));
 let discount;
 do{
     discount = prompt("nhập Discount");
