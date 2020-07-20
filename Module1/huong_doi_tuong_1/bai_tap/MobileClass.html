@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điện thoại</title>
+</head>
+<body>
+
+
+</body>
+<script>
+    class Mobile{
+        constructor(battery,name) {
+        this.battery=battery;
+        this.name =name;
+
+        this.arrayTyping=[];
+        this.arraySent= [];
+        this.arrayReceived =[];
+        this.turnOn= false;
+        }
+        turnOnMobile(){
+        return this.turnOn= true;
+        }
+        checkBattery(){
+            return this.battery;
+        }
+
+        typingMessage() {
+            if(this.turnOnMobile()) {
+                let message = prompt("nhập vào tin nhắn");
+                this.arrayTyping.push(message);
+                this.battery--;
+                return message;
+            }
+        }
+
+        sendMessage(message, mobile) {
+            if(this.turnOnMobile()){
+                mobile.arrayReceived.push(message);
+                console.log(mobile.arrayReceived);
+                this.battery --;
+            }
+         }
+        showSentMessage() {
+            if(this.turnOnMobile()) {
+                alert("tin nhắn nhận đc" + this.arraySent);
+                this.battery--;
+            }
+        }
+
+        showReceivedMessage(){
+            if(this.turnOnMobile()) {
+                alert("tin nhắn nhận đc" + this.arrayReceived);
+                this.battery--;
+            }
+        }
+        chargerBattery(){
+            if(this.battery<100){
+                return this.battery++;
+            }else{
+                let message= "pin đầy"
+                return message;
+
+            }
+        }
+
+
+    };
+        let nokia = new Mobile(100,"nokia");
+        let iphone=new Mobile(100,"iphone");
+        nokia.sendMessage(nokia.typingMessage(),iphone);
+        iphone.showReceivedMessage();
+
+
+
+</script>
+</html>

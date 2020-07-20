@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+
+</body>
+<script>
+    let Temperature =function (celsius) {
+        this.celsius= celsius;
+
+        this.changeToKelvin=function () {
+            return this.celsius+237.15;
+        }
+        this.changeToFahrenheit =function () {
+            return this.celsius*1.8+32;
+        }
+    };
+    let temperature =new Temperature(25);
+    console.log(temperature.changeToKelvin());
+    console.log(temperature.changeToFahrenheit());
+</script>
+</html>

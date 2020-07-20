@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình Chữ nhật</title>
+</head>
+<body>
+    <canvas id="myCanvas"  width="1368px" height="768px"   style="border:1px solid #d3d3d3;"/>
+</body>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+
+        area() {
+            return this.width * this.height;
+        }
+
+        perimeter() {
+            return (this.width + this.height) * 2;
+        }
+
+        getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
+
+        getRandomColor() {
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+
+        createRectangle() {
+
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let color = this.getRandomColor();
+            let width = Math.random() * window.innerWidth;
+            let height = Math.random() * window.innerHeight;
+            let rectangle = new Rectangle(width, height);
+            ctx.beginPath();
+            ctx.fillRect(100, 100, rectangle.width, rectangle.height);
+            ctx.fillStyle = color;
+            ctx.fill();
+            console.log("Diện tích hình chữ nhật:" + rectangle.area())
+            console.log("Chu vi hình chữ nhật:" + rectangle.perimeter())
+        }
+    };
+    let rectangle = new Rectangle();
+     rectangle.createRectangle();
+
+</script>
+</html>

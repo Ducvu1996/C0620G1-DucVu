@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp hình tròn</title>
+</head>
+<body>
+
+</body>
+<script>
+    let Circle =function (radius) {
+        this.radius=radius;
+
+        this.getRadius=function () {
+        return this.radius;
+        }
+
+        this.area=function () {
+            return radius*radius*Math.PI;
+        }
+
+    };
+    let circle =new Circle(10);
+    let radius= circle.radius;
+    let area=circle.area();
+    alert("diện tích hình tròn có bán kính "+radius+" là: "+area);
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 4: Mảng</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arrayCustomer=["Thu","Mai","Bá","Vũ","Thìn","Đông","Diệp"];
+    let choice=parseInt(prompt("Nhập vào lựa chọn của bạn:" +
+                                "1:Thêm khách hàng" +
+                                "2:Xóa Khách Hàng"));
+    switch(choice) {
+    case 1:
+        addNewCustomer();
+        break;
+    case 2:
+        delCustomer();
+        break;
+    default:
+        alert("không có lựa chọn này,");
+    }
+
+    function addNewCustomer() {
+        let nums =parseInt(prompt("nhập vào số khách hàng cần thêm"));
+        for(let i=0;i<nums;i++){
+            arrayCustomer[i]=prompt("nhập tên khách hàng thứ "+ (i+1));
+        }
+         for(let i=0;i<arrayCustomer.length;i++){
+           alert("khách hàng thứ "+(i+1) +":" +arrayCustomer[i]);
+        }
+        alert(arrayCustomer.sort());
+
+    }
+    function delCustomer() {
+
+        let idCustomer= parseInt(prompt("lựa chọn khách hàng cần xóa"+"\n"+
+            "danh sách khách hàng:"+arrayCustomer ));
+        arrayCustomer.splice(idCustomer-1,1);
+        for(let i=0;i<arrayCustomer.length;i++){
+            document.write("khách hàng thứ "+(i+1) +":" +arrayCustomer[i]+"<br>");
+        }
+    }
+</script>
+</html>
