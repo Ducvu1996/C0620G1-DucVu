@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra học lực</title>
+</head>
+<body>
+
+</body>
+<script>
+    // tạo lớp học sinh
+    class HocSinh{
+        constructor(soThuTu,hoTen,ngaySinh,diemTrungBinh) {
+            this.soThuTu=soThuTu;
+            this.hoTen=hoTen;
+            this.ngaySinh=ngaySinh;
+            this.diemTrungBinh=diemTrungBinh;
+        }
+        getSoThuTu(){
+            return this.soThuTu;
+        }
+        getHoTen(){
+            return this.hoTen;
+        }
+        getNgaySinh(){
+            return this.ngaySinh;
+        }
+        getDiemTrungBinh(){
+            return this.diemTrungBinh;
+        }
+
+        setSoThuTu(soThuTu){
+            this.soThuTu=soThuTu;
+        }
+        setHoTen(hoTen){
+           this.hoTen = hoTen;
+        }
+        setNgaySinh(ngaySinh){
+            this.ngaySinh = ngaySinh;
+        }
+        setDiemTrungBinh(diemTrungBinh){
+            this.diemTrungBinh = diemTrungBinh;
+        }
+
+    }
+    let hocSinh1= new HocSinh(1,"Nguyễn Đức Vũ","01/02/1996",3);
+    let hocSinh2= new HocSinh(2,"Nguyễn Thị Thu","04/07/2000",9);
+    let hocSinh3= new HocSinh(3,"Dương Thị Dung","23/12/2000",8);
+    hienThi(hocSinh1);
+    kiemTraHocLuc(hocSinh1);
+    // hàm hiển thị thông tin học sinh
+    function hienThi(hocSinh) {
+        let soThuTu=hocSinh.getSoThuTu();
+        let hoTen=hocSinh.getHoTen();
+        let ngaySinh=hocSinh.getNgaySinh();
+        let diemTrungBinh =hocSinh.getDiemTrungBinh()
+        alert("Số thứ tự:"+soThuTu+
+               "\nHọ và Tên:"+hoTen +
+                "\nNgày Sinh:"+ngaySinh+
+                "\nĐIểm trung bình:"+diemTrungBinh) ;
+    }
+    // hàm kiểm tra học lực của học sinh
+    function kiemTraHocLuc(hocSinh) {
+        let diemTrungBinh =hocSinh.getDiemTrungBinh()
+        let hoTen = hocSinh.getHoTen()
+        if(diemTrungBinh >8){
+            alert(hoTen+" là học sinh giỏi");
+        }else if(diemTrungBinh>=6.5){
+            alert(hoTen+" là học sinh khá");
+        }else if(diemTrungBinh>=5){
+            alert(hoTen+" là học sinh trung bình");
+        }else if(diemTrungBinh>=3.5){
+            alert(hoTen+" là học sinh yếu");
+        }else {
+            alert(hoTen+" là học sinh kém");
+        }
+    }
+
+
+
+</script>
+</html>

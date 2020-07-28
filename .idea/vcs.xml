@@ -6,5 +6,7 @@
     <mapping directory="$PROJECT_DIR$/Module1/git/GitProject/my_new_project" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Module1/git/my_new_project" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Module1/git/wf-hello" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Module1/huong_doi_tuong_2/bai_tap/Move/objects" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Module1/huong_doi_tuong_2/bai_tap/move_objects" vcs="Git" />
   </component>
 </project>

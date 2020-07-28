@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam Eva story</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Apple{
+        constructor(weigth){
+        this.weigth =weigth;
+        }
+
+
+    }
+    class Human{
+        constructor(name,gender,weight) {
+        this.name=name;
+        this.gender=gender;
+        this.weight=weight;
+
+        }
+        saySomething(message){
+         console.log(message);
+        }
+        eatApple(apple){
+            if(apple.weigth>0) {
+                this.weight++;
+                apple.weigth--;
+            }
+        }
+    }
+
+    let apple =new Apple(10);
+    let adam = new Human("Adam","Male",70);
+    let eva = new Human("Eva", "Female",55);
+    adam.saySomething("tôi là Adam");
+    eva.saySomething("tôi là Eva");
+    adam.eatApple(apple);
+    alert(adam.weight);
+    alert(apple.weigth);
+</script>
+</html>

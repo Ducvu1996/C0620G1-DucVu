@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 1: mảng</title>
+</head>
+<body>
+
+</body>
+<script>
+    // khai báo 1 mảng và nhập vào các phần tử từ bàn phím
+    let array = new Array(5);
+    let arrayLength= array.length;
+    for(let i=0; i<arrayLength;i++){
+        array[i]=parseInt(prompt("nhập vào phần tử thứ "+(i+1)));
+    }
+    // in mảng trước khi được sắp xếp
+    document.write("mảng trước khi được sắp xếp là :"+ array);
+    // sắp xếp mảng
+    for (let i=0; i<arrayLength;i++){
+        for(let j=i+1;j<arrayLength;j++){
+            if(array[i]>array[j]){
+                let temp =array[i];
+                array[i]=array[j];
+                array[j]=temp;
+            }
+        }
+    }
+    // in mảng sau khi được sắp xếp
+    document.write("mảng sau khi được sắp xếp là :"+ array);
+</script>
+</html>

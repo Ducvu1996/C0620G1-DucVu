@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2: Hàm kiểm tra số chính phương</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // kiểm tra 1 số có phải là số chính phương hay là không
+    let number= parseInt(prompt("nhập vào một số nguyên"))
+    if(isMainNumber(number)){
+        alert(number+" là một số chính phương")
+    }else{
+        alert(number+" không phải là một số chính phương")
+    }
+    // hàm kiểm tra số chính phương
+    function isMainNumber(number) {
+        for(let i=0;i<=Math.sqrt(number);i++){
+            if(number==(i*i)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+</script>
+</html>

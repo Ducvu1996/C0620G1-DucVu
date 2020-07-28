@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất trong mảng</title>
+</head>
+<body>
+
+</body>
+<script>
+    // nhập vào 1 mảng số nguyên chứa danh sách điểm thi
+    let array= [8, 6, 2, 8, 1, 8, 4];
+    let maxScore=array[0];
+    let index = 0;
+    findMaxScore(array);
+    // hàm kiểm tra số nguyên lớn nhất và in ra vị trí của số lớn nhất
+    function findMaxScore(array) {
+        for(let i=1;i<array.length;i++){
+            if(array[i]>maxScore){
+                maxScore=array[i];
+                index=i;
+            }else if(array[i]==maxScore){
+                maxScore=array[i];
+                index=i;
+            }
+
+        }
+        alert("điểm số cao nhất là "+ maxScore + " ở vị trí " +index);
+    }
+</script>
+</html>

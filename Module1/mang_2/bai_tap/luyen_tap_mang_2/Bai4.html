@@ -8,11 +8,18 @@
 
 </body>
 <script>
-    let string ="Chào em anh ngồi đây từ sáng";
-    let count = string.split(" ").length;
-    document.write(string);
+    let string ="anh";
+
+    let  arrStr= string.split(" ");
+    for(let i=0;i<arrStr.length;i++){
+        if(arrStr[i]==''){
+            arrStr.splice(i,1);
+            i--;
+        }
+    }
+    document.write(arrStr);
     document.write("<br>");
-    document.write(count+" từ");
+    document.write(arrStr.length+" từ");
 
 
 </script>

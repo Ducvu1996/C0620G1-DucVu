@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yêu cầu 5</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arrListCustomers=new Array();
+    displayMainMenu();
+    function displayMainMenu() {
+        let choice= parseInt(prompt("Nhập lựa chọn của bạn:\n" +
+            "1.Thêm mới 1 khách hàng.\n" +
+            "2.Xem thông tin khách hàng.\n" +
+            "3.Sữa thông tin khách hàng.\n" +
+            "4.Xóa khách hàng.\n" +
+            "5. Exit\n"));
+        switch(choice) {
+            case 1:
+                addNewCustomer();
+                break;
+            case 2:
+                displayCustomers();
+                break;
+            case 3:
+                editCustomer();
+                break;
+            case 4:
+                deleteCustomer()
+                break;
+            case 5:
+
+                break;
+            default:
+                break;
+        }
+    }
+// thêm người dùng
+    function addNewCustomer() {
+      let cusInfo= new Array();
+        let name = prompt("nhập tên:");
+        let cmnd = prompt("nhập số cmnd:");
+        let birthday = prompt("nhập ngày sinh:");
+        let email = prompt("nhập email: ");
+
+        cusInfo.push(name);
+        cusInfo.push(cmnd);
+        cusInfo.push(birthday);
+        cusInfo.push(email);
+
+        arrListCustomers.push(cusInfo);
+        alert("bạn đã thêm thành công");
+        displayMainMenu();
+    }
+    // hiển thị người dùng
+    function displayCustomers() {
+       let temp="";
+       for(let i=0;i<arrListCustomers.length;i++){
+            temp+=i+".Name:"+arrListCustomers[i][0]+"---CMND:"+arrListCustomers[i][1]+"\n";
+
+       }
+        temp+=arrListCustomers.length+":Back";
+       let chooseDisplay= parseInt(prompt(temp));
+        if(chooseDisplay===arrListCustomers.length){
+            displayMainMenu();
+        }
+        alert("name: " + arrListCustomers[chooseDisplay][0] + '\n' +
+            'cmnd:' + arrListCustomers[chooseDisplay][1] + '\n' +
+            'birthday:' + arrListCustomers[chooseDisplay][2] + '\n' +
+            'email:' + arrListCustomers[chooseDisplay][3] + '\n'
+        );
+
+        displayMainMenu();
+    }
+    // sữa người dùng 
+    function editCustomer () {
+        let temp="";
+        for(let i=0;i<arrListCustomers.length;i++){
+            temp+=i+".Name:"+arrListCustomers[i][0]+"---CMND:"+arrListCustomers[i][1]+"\n";
+
+        }
+        temp+=arrListCustomers.length+":Back";
+        let chooseDisplay= parseInt(prompt(temp));
+        if(chooseDisplay===arrListCustomers.length){
+            displayMainMenu();
+        }
+        let chooseElement = parseInt(prompt("1.name: " + arrListCustomers[chooseDisplay][0] + '\n' +
+            '2.cmnd:' + arrListCustomers[chooseDisplay][1] + '\n' +
+            '3.birthday:' + arrListCustomers[chooseDisplay][2] + '\n' +
+            '4.email:' + arrListCustomers[chooseDisplay][3] + '\n'
+        ));
+        arrListCustomers[chooseDisplay][chooseElement-1]=prompt("nhập:");
+        displayCustomers();
+        displayMainMenu();
+
+    }
+    // xóa người dùng
+    function deleteCustomer() {
+        let temp="";
+        for(let i=0;i<arrListCustomers.length;i++){
+            temp+=i+".Name:"+arrListCustomers[i][0]+"---CMND:"+arrListCustomers[i][1]+"\n";
+
+        }
+        temp+=arrListCustomers.length+":Back";
+        let chooseDelete= parseInt(prompt("chọn khách hàng để xóa \n"+temp));
+        if(chooseDelete===arrListCustomers.length){
+            displayMainMenu();
+        }
+        if(confirm("bạn có chắc chắn xóa người này không?")==true) {
+            arrListCustomers.splice(chooseDelete, 1);
+        }
+        displayCustomers();
+        displayMainMenu();
+    }
+    //displayMainMenu();
+</script>
+</html>
