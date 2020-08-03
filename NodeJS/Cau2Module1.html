@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa phần tử trong mảng</title>
+</head>
+<body>
+
+</body>
+<script>
+    let array =[1,4,4,4,4];
+    let number= parseInt(prompt("nhập vào 1 số nguyên cần tìm"));
+    let check=tryRemoveFromArray(array,number);
+    alert("Mảng sau khi xóa các số nguyên vừa nhập là: \n"+check);
+
+    // hàm kiểm tra và xóa phẩn từ trong mảng 1 chiều
+   function tryRemoveFromArray(array,number) {
+       let arrayLength= array.length;
+       for(let i=0;i<arrayLength;i++) {
+           if (array[i] === number) {
+               array.splice(i, 1);
+               i--;
+           }
+       }
+       return array;
+   }
+
+</script>
+</html>

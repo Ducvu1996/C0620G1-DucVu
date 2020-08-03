@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số Fibonacci</title>
+</head>
+<body>
+
+</body>
+<script>
+    let numberInput=parseInt(prompt("nhập vào 1 số cần kiểm tra"));
+    if(isFibonacci(numberInput)){
+        alert(numberInput+" là số fibonacci")
+    }else {
+        alert(numberInput+" không phải là số fibonacci");
+    }
+    // hàm kiểm tra số fibonacci
+    function isFibonacci(number) {
+        if(number==0||number==1) return true;
+        else{
+            let temp1=1;
+            let temp2=1;
+            let temp=0;
+            while(temp1<number){
+                temp=temp1+temp2;
+                temp1=temp2;
+                temp2=temp;
+
+            }
+            if(temp1===number)return true;
+            return false;
+        }
+    }
+
+</script>
+</html>

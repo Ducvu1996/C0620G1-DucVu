@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình tròn</title>
+</head>
+<body>
+<canvas id="myCanvas"  width="1000px" height="1000px"   style="border:1px solid #d3d3d3;"/>
+</body>
+<script>
+    class Circle{
+        constructor(x,y, radius, color) {
+            this.x= x;
+            this.y=y;
+            this.radius=radius;
+            this.color=color;
+        }
+        getX(){
+             return this.x;
+        }
+        getY(){
+             return this.y;
+        }
+        getRadius(){
+            return this.radius;
+        }
+        getColor(){
+            return this.color;
+        }
+        setX(x){
+            this.x=x;
+        }
+        setY(y){
+            this.y=y;
+        }
+        setRadius(radius){
+            this.radius=radius;
+        }
+        setColor(color){
+            this.color=color;
+        }
+        render(){
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.arc(this.getX(), this.getY(), this.getRadius(), 0, 2 * Math.PI);
+            ctx.fillStyle = this.getColor();
+            ctx.stroke();
+            ctx.fill();
+        }
+    }
+    // tạo và hiển thị hình tròn trên canvan
+    let circle = new Circle(100,100,100,"#000000")
+    circle.render();
+</script>
+</html>
