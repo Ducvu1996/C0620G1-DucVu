@@ -1,7 +1,7 @@
 package huong_doi_tuong.bai_tap;
 
 public class QuadraticEquation {
-	int a,b,c;
+	private int a,b,c;
 	public QuadraticEquation() {
 		
 	}
