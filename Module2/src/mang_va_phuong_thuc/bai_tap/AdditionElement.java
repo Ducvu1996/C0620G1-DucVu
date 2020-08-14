@@ -9,18 +9,17 @@ public class AdditionElement {
 		array[0]= 1;
 		array[1]= 3;
 		array[2]= 4;
-		array[3]= 9;
-		array[4]= 2;
-		array[5]= 20;
+		array[3]= 5;
+		array[4]= 6;
+		array[5]= 7;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("input a index that you wanna add: ");
 		int index= sc.nextInt();
-		for(int i=index;i<array.length-1;i++) {
-		
-			 array[i+1]=array[i];
+		for(int i=array.length-1;i>=index;i--) {
+			array[i] =array[i-1];
 			
 		}
-		array[array.length-1]=0;
+		
 		System.out.println("input a number that you wanna add : ");
 		int x= sc.nextInt();
 		array[index]=x;
