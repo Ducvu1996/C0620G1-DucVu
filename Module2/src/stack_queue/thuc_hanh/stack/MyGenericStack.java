@@ -28,7 +28,7 @@ public class MyGenericStack<T> {
 	        return false;
 	    }
 	    public static void stackOfIStrings() {
-	        MyGenericStack<String> stack = new MyGenericStack();
+	        MyGenericStack<String> stack = new MyGenericStack<>();
 	        stack.push("Five");
 	        stack.push("Four");
 	        stack.push("Three");
@@ -42,7 +42,7 @@ public class MyGenericStack<T> {
 	        System.out.println("\n1.3. Size of stack after pop operations : " + stack.size());
 	    }
 	    public static void stackOfIntegers() {
-	        MyGenericStack<Integer> stack = new MyGenericStack();
+	        MyGenericStack<Integer> stack = new MyGenericStack<>();
 	        stack.push(5);
 	        stack.push(4);
 	        stack.push(3);
