@@ -22,16 +22,24 @@ public class Main {
 		System.out.println(demerging.nu.size());
 		System.out.println(demerging.nam.size());
 		file =  new FileOutputStream("fileList.txt");
-		ObjectOutputStream objectfile = new ObjectOutputStream(file);
-		objectfile.writeObject("list\n");
+		
+		byte[] objectfile;
+	
 		while(demerging.nu.size()>0) {
-			objectfile.writeObject((demerging.nu.poll().toString()));
+		
+			String str = demerging.nu.poll().toString();
+			objectfile = str.getBytes();
+			file.write(objectfile);
+	
 			
 		}
 		while(demerging.nam.size()>0) {
-			objectfile.writeObject((demerging.nam.poll().toString()));
+			String str = demerging.nam.poll().toString();
+			objectfile = str.getBytes();
+			file.write(objectfile);
 		}	
-		objectfile.close();
+
+		file.close();
 	
 	}
 
