@@ -13,7 +13,7 @@ public class BinarySearch {
 		      if (array[mid] >key) {
 		    	   return binarySearch(array, low, mid - 1, key);
 		      }else {
-		      return binarySearch(array, mid + 1, hight, key);
+		    	  return binarySearch(array, mid + 1, hight, key);
 		      }
 		    }
 		    return -1;

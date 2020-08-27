@@ -13,7 +13,8 @@ public class Main {
 		showMenu();
 		
 	   while (true) {
-           choose = scanner.nextInt();
+		
+		   choose = scanner.nextInt();
             switch (choose) {
             case 1:
             	mobile.add();

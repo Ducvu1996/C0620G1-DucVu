@@ -1,0 +1,6 @@
+001,iphone8,apple,1200,US
+002,iphone X,apple,1500,US
+003,note 8,samsung,1000,KR
+004,nokiaG5,nokia,500,US
+005,iphone12,apple,2000,US
+006,galaxys10,samsung,1000,KR
