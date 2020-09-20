@@ -102,6 +102,7 @@ insert into level (name_level) values('engineer'),('master'),('doctor');
 insert into department (name_department) values('training'),('reception'),('design');
 
 insert into type_customer (name_type_customer) values('vip'),('normal'),('businessman');
+insert into type_customer (name_type_customer) values('Diamond');
 
 insert into type_rent (name_type_rent,price) values('week',1000),('day',200),('month',3500);
 
@@ -129,8 +130,8 @@ values (3,1,3),
 		(4,1,4);
 
 insert into contract(id_staff, id_customer,id_service,contract_sign_date ,contract_end_date,deposits,total_money)
-values (1,1,1, '2020-06-07','2020-12-09',100,150),
-	(2,2,2, '2020-06-07','2020-12-09',100,150);
+values (1,1,1, '2019-02-07','2020-12-09',100,150),
+	(2,2,2, '2019-01-07','2020-12-09',100,150);
     
 insert into service(name_service ,area,number_of_floor,maximum_people,status_service ,price_rent,id_type_service ,id_type_rent)
 values('villa',100,2,7,'availabel','1000',1,1),
@@ -142,3 +143,35 @@ values('villa',100,2,7,'availabel','1000',1,1),
 select* from customers
 where datediff(now(),birth_day)/365 >=18
 	and (address='Danang' or address='Quang Tri');
+-- yêu cầu 4
+select customers.id, customers.name_customer,contract_sign_date,contract_end_date,name_type_customer, count(contract.id_customer) as numberOfOrder
+from customers
+left join contract on customers.id = contract.id_customer
+left join type_customer on type_customer.id = customers.id_type_customer
+where name_type_customer = 'Diamond'
+group by name_customer
+order by  numberOfOrder;
+-- yêu cầu 5 
+select customers.id, customers.name_customer,name_type_customer,service.name_service,
+contract_sign_date,contract_end_date ,sum(service.price_rent+accompanied_service.price*accompanied_service.unit) as total_pay
+from customers
+left join contract on customers.id = contract.id_customer
+left join type_customer on type_customer.id = customers.id_type_customer
+left join service on contract.id_service= service.id
+left join contract_detail on contract.id= contract_detail.id_contract
+left join accompanied_service on contract_detail.id_accompanied_service= accompanied_service.id
+group by name_customer;
+
+-- yêu cầu 6 
+select id_service,name_type_service,area,maximum_people,price_rent,type_service.name_type_service,contract.id_customer,contract_sign_date
+from service
+left join type_service on type_service.id = service.id_type_service
+left join contract  on contract.id_service = service.id
+where id_service not in (
+	select service.id from service
+    left join contract on service.id = contract.id_service
+    where datediff(contract_sign_date, '2019-01-01') >0
+);
+
+
+
