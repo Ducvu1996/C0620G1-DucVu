@@ -172,6 +172,52 @@ where id_service not in (
     left join contract on service.id = contract.id_service
     where datediff(contract_sign_date, '2019-01-01') >0
 );
+-- yêu cầu 7
+select id_service,name_type_service,area,maximum_people,price_rent,type_service.name_type_service,contract.id_customer,contract_sign_date
+from service
+left join type_service on type_service.id = service.id_type_service
+left join contract  on contract.id_service = service.id
+where contract_sign_date > '2017-12-31' and contract_sign_date < '2019-01-01' 
+and id_service not in (
+	select service.id from service
+    left join contract on service.id = contract.id_service
+    where contract_sign_date > '2018-12-31' and contract_sign_date < '2020-01-01' 
+)
+group by id_service;
+-- yêu cầu 8
+-- cách 1
+select distinct name_customer
+from  customers;
+-- Cách 2
+select name_customer
+from customers 
+group by name_customer;
+-- cách 3
+select name_customer
+from customers
+union
+select name_customer
+from customers;
+ -- yêu cầu 9
+ select month(contract_sign_date) as `month`, count( id_customer) as numberOfContract
+ from contract
+ where year(contract_sign_date) = 2019
+ group by  month(contract_sign_date)
+ order by month ;
+ -- yêu cầu 10
+ select contract.id, contract_sign_date, contract_end_date, deposits, count(id_accompanied_service)
+from contract 
+left join contract_detail on contract.id = contract_detail.id_contract
+group by contract.id ;
+-- yêu cầu 11
+ select name_accompanied_service, name_customer,type_customer.name_type_customer, address
+from accompanied_service 
+left join contract_detail on accompanied_service.id = contract_detail.id_contract
+left join contract on contract.id = contract_detail.id_contract
+left join customers on customers.id = contract.id_customer
+left join type_customer on type_customer.id = customers.id_type_customer
+where type_customer.name_type_customer ='Diamond' and ( address = 'Vinh' or address = 'Quang Ngai');
+-- yêu cầu 12
 
 
 
