@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        [class *= 'col-'] {
+            float: left;
+        }
+
+        .row::after{
+            clear: both;
+        }
+
+        header {
+
+
+        }
+        header div{
+            display: inline;
+            margin-left: 30px;
+            float: left;
+        }
+        header #logo{
+            padding-top: 20px;
+        }
+        header ul{
+            width: 700px;
+            float: left;
+
+        }
+        header li {
+            display: inline;
+            width: 150px;
+            padding: 20px;
+        }
+        header{
+
+            border-bottom: 1px solid #95999c;
+            height: 90px;
+        }
+
+        .icon-bar a {
+            font-size: 40px;
+            padding-left: 20px;
+            color: black;
+        }
+        .left-panel {
+            padding: 15px;
+        }
+
+        .left-panel ul {
+            list-style-type: none;
+            padding: 0px;
+
+        }
+        .text_input{
+            height: 30px;
+
+            margin-left: 10px;
+            margin-top: 10px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+        .left-panel ul li {
+
+            margin-bottom: 5px;
+            padding: 15px;
+        }
+
+        .left-panel ul li:hover{
+
+            color: white;
+        }
+
+        .body {
+
+            padding: 15px;
+        }
+
+        .right-panel {
+
+            padding: 15px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /*<= 768px*/
+        @media only screen and (max-width: 768px) {
+            [class *= 'col-'] {
+                width: 100%;
+            }
+        }
+        .profile {
+            border-radius: 50%;
+            display: inline;
+            float: left;
+            margin: 0px;
+        }
+        .name {
+            display: inline;
+            float: left;
+            padding-top: 10px;
+            font-weight: bold;
+        }
+        #profile2 {
+            border-radius: 50%;
+            display: inline;
+            float: left;
+        
+        }
+        #name3 {
+
+            float: left;
+            font-weight: bold;
+           margin-left: 20px;
+        }
+        #profile3{
+            float: left;
+            border-radius: 50%;
+            clear: both;
+        }
+        .name_main{
+            margin-top: 20px;
+            float: left;
+            font-weight: bold;
+           margin-left: 20px;
+        }
+        .profile_main{
+            margin-top: 20px;
+            float: left;
+            border-radius: 50%;
+            clear: both;
+        }
+
+        #messenger {
+
+            float: left;
+            padding-top: 20px;
+            padding-left: 10px;
+            color: black;
+        }
+        #leftbar li{
+            display: block;
+            clear: both;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+        #leftbar li i{
+            font-size: 30px;
+        }
+        #rightbar li{
+            display: block;
+            clear: both;
+            font-weight: bold;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+        #rightbar li i{
+            font-size: 30px;
+        }
+         #leftbar li i h5{
+             display: block;
+            font-size: 30px;
+        }
+        #body div{
+            display: block;
+        }
+        #title-post{
+            display: inline;
+            clear: both;
+        }
+        #content-post p {
+            display: block;
+            float: left;
+            margin-right: 50px;
+            padding-right: 30px;
+        }
+        .dot {
+            height: 5px;
+            width: 5px;
+            background-color: green;
+            border-radius: 50%;
+            display: inline-block;
+
+        }
+        span{
+            margin-top: 20px;
+        }
+        header{
+
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-12">
+        <header>
+            <div id="logo">
+                <img class="imglogo" src="facebook-512.png" width="50px" height="50px">
+                <input  class="text_input" type="text"  placeholder=" Search..." >
+            </div>
+
+            <div id="menu">
+                <ul class="icon-bar">
+                    <li> <a class="active" href="#"><i class="fa fa-home"></i></a> </li>
+                    <li> <a class="active" href="#"><i class="fa fa-search"></i></a> </li>
+                    <li> <a class="active" href="#"><i class="fa fa-envelope"></i></a> </li>
+                    <li> <a class="active" href="#"><i class="fa fa-globe"></i></a> </li>
+                    <li> <a class="active" href="#"><i class="fa fa-trash"></i></a> </li>
+
+
+                </ul>
+            </div>
+            <div>
+                <img class="profile_main" src="profile.jpg" width="30px" height="30px">
+                <h5 class="name_main">Đức Vũ</h5>
+                <a id="messenger"><i class='fab fa-facebook-messenger' style='font-size:24px'></i></a>
+            </div>
+        </header>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <div class="left-panel">
+            <ul id="leftbar">
+                <li>
+                    <img id="profile2" src="profile.jpg" width="30px" height="30px">
+                    <h5 class="name" style="margin-left: 10px">  <span>Đức Vũ</span></h5>
+                </li>
+                <li><i class='fas fa-user-friends'></i> <span>Friend</span></li>
+                <li><i class='fas fa-film'></i></i>  <span>Videos</></li>
+                <li> <i class="fa fa-group"></i>  <span>Group</span></li>
+                <li> <i class="fas fa-funnel-dollar"></i>  <span>Marketplace</span></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="body">
+            <div id="title-post">
+                <img id="profile3" src="profile.jpg" width="30px" height="30px">
+                <h5 id="name3" >Đức Vũ</h5>
+            </div>
+            <div id="content-post">
+                <p style="text-align: justify">Ba tay chơi chính trên thị trường là Grab, Go-Viet và be lỗ tổng cộng 4.900 tỷ đồng chỉ trong năm 2019.
+                    Bên cạnh đó, 2 ứng dụng chuyên về giao đồ ăn là Baemin và Now cũng lỗ hơn 1.200 tỷ đồng.</p>
+            </div>
+            <div>
+                <img src="category-1.jpg" width="600px" height="400px">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="right-panel">
+            <ul id="rightbar">
+                <li>
+                    <img class="profile" src="profile.jpg" width="30px" height="30px">
+                    <span class="dot"></span>
+                     <span>Thu Mai</span>
+
+                </li>
+                <li>
+                    <img class="profile" src="messi.jpg" width="30px" height="30px">
+                    <span class="dot"></span>
+                   <span>Lione Messi</span>
+                </li>
+                <li>
+                    <img class="profile" src="ronaldo.jpg" width="30px" height="30px">
+                    <span class="dot"></span>
+                 <span>James Ronando</span>
+                </li>
+                <li>
+                    <img class="profile" src="billgate.jpg" width="30px" height="30px">
+                    <span class="dot"></span>
+                   <span>Bill Gate</span>
+                </li>
+                <li>
+                    <img class="profile" src="neymar.jpeg" width="30px" height="30px">
+                    <span class="dot"></span>
+                    <span>Neymar Jr</span>
+                </li>
+                <li>
+                    <img class="profile" src="nancy.png" width="30px" height="30px">
+                    <span class="dot"></span>
+                    <span>Nancy</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" style="background-color: violet; padding: 15px; margin: 5px">
+        Footer
+    </div>
+</div>
+</body>
+</html>
