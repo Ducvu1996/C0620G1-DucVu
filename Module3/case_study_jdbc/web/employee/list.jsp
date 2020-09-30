@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -6,12 +7,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <title>Employee manager</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -65,109 +67,41 @@
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-                    </th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
+
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>BIRTHDAY</th>
+                    <th>EMAIL</th>
+                    <th>ADDRESS</th>
+                    <th>USER_NAME</th>
+                    <th>ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-                    </td>
-                    <td>Thomas Hardy</td>
-                    <td>thomashardy@mail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
-                    <td>(171) 555-2222</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-                    </td>
-                    <td>Dominique Perrier</td>
-                    <td>dominiqueperrier@mail.com</td>
-                    <td>Obere Str. 57, Berlin, Germany</td>
-                    <td>(313) 555-5735</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-                    </td>
-                    <td>Maria Anders</td>
-                    <td>mariaanders@mail.com</td>
-                    <td>25, rue Lauriston, Paris, France</td>
-                    <td>(503) 555-9931</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-                    </td>
-                    <td>Fran Wilson</td>
-                    <td>franwilson@mail.com</td>
-                    <td>C/ Araquil, 67, Madrid, Spain</td>
-                    <td>(204) 619-5731</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-                    </td>
-                    <td>Martin Blank</td>
-                    <td>martinblank@mail.com</td>
-                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                    <td>(480) 631-2097</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
+                <c:forEach var="employee" items="${listEmployee}">
+                    <tr>
+                        <td><c:out value="${employee.employee_id}"/></td>
+                        <td><c:out value="${employee.employee_name}"/></td>
+                        <td><c:out value="${employee.employee_birthday}"/></td>
+                        <td><c:out value="${employee.employee_email}"/></td>
+                        <td><c:out value="${employee.employee_address}"/></td>
+                        <td><c:out value="${employee.user_name}"/></td>
+                        <td>
+
+                            <a href="/employee?action=edit&id=${employee.employee_id}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="/employee?action=delete&id=${employee.employee_id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <div class="clearfix">
                 <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul class="pagination">
                     <li class="page-item disabled"><a href="#">Previous</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item "><a href="#" class="page-link">3</a></li>
                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                     <li class="page-item"><a href="#" class="page-link">5</a></li>
                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
@@ -180,7 +114,8 @@
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form action="/employee" method="post">
+                <input type="hidden" name="action" value="create">
                 <div class="modal-header">
                     <h4 class="modal-title">Add Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -188,19 +123,56 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="employee_name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
+                        <label>Birthday</label>
+                        <input type="text" name="employee_birthday" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
+                        <label>ID card</label>
+                        <input type="text" name="employee_id_card" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input type="text" name="employee_salary" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="employee_phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="employee_email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" name="employee_address" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        <select name="position_id">
+                            <option value="1">manager</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label>education degree </label>
+                        <select name="education_degree_id">
+                            <option value="1">doctor</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Division</label>
+                        <select name="division_id">
+                            <option value="1">reception</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label>User name</label>
+                        <input type="text" name="user_name" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">

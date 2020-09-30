@@ -55,7 +55,7 @@
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li class="active"><a href="./index.html">Home</a></li>
-                    <li><a href="/employee/list.jsp">Employees</a></li>
+                    <li><a href="/employee">Employees</a></li>
                     <li><a href="rooms.html">Customers</a></li>
                     <li><a href="#">Pages</a>
                         <ul class="drop-menu">
