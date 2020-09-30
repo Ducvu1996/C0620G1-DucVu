@@ -13,6 +13,7 @@ public class ProductDAOImpl implements ProductDAO {
         productMap.put(1,new Product(1,"iphone","SP0001","1000","USA"));
         productMap.put(2,new Product(2,"sam sung","SP0002","900","KOREA"));
         productMap.put(3,new Product(3,"nokia","SP0003","800","USA"));
+        productMap.put(4,new Product(3,"s4","SP0003","800","USA"));
     }
     @Override
     public List<Product> findAll() {

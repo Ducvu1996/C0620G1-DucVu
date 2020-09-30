@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="46b467b2-8795-4795-969f-30e18c777717" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/user_manager/src/DAO/IUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/src/DAO/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/src/controller/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/src/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/web/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/web/user/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/web/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_manager/web/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/huong_doi_tuong_2/bai_tap/move_objects" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module1/huong_doi_tuong_2/bai_tap/move_objects" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../MVC/bai_tap/products_mvc/out/artifacts/products_mvc_war_exploded/WEB-INF/classes/DAO/ProductDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVC/bai_tap/products_mvc/out/artifacts/products_mvc_war_exploded/WEB-INF/classes/DAO/ProductDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../MVC/bai_tap/products_mvc/out/production/products_mvc/DAO/ProductDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVC/bai_tap/products_mvc/out/production/products_mvc/DAO/ProductDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../MVC/bai_tap/products_mvc/src/DAO/ProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVC/bai_tap/products_mvc/src/DAO/ProductDAOImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1iBCv8ceTRAsvAvzLhrD27dugQI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user_manager" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46b467b2-8795-4795-969f-30e18c777717" name="Default Changelist" comment="" />
+      <created>1601371825948</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601371825948</updated>
+      <workItem from="1601371827220" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1601371852732">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601371852732" />
+  </component>
+</project>
