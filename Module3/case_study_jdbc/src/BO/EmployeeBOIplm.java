@@ -14,8 +14,8 @@ public class EmployeeBOIplm implements EmployeeBO {
     }
 
     @Override
-    public String save(Employee employee) {
-        return this.employeeDAO.save(employee);
+    public String save(Employee employee, String password) {
+        return this.employeeDAO.save(employee,password);
     }
 
     @Override
@@ -35,6 +35,6 @@ public class EmployeeBOIplm implements EmployeeBO {
 
     @Override
     public List<Employee> findByName(String employee_name) {
-        return null;
+        return this.employeeDAO.findByName(employee_name);
     }
 }

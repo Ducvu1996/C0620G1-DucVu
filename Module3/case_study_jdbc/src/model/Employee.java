@@ -55,6 +55,21 @@ public class Employee {
         this.user_name = user_name;
     }
 
+    public Employee( Integer employee_id,String employee_name, String employee_birthday, String employee_email, String employee_address) {
+        this.employee_id =  employee_id;
+        this.employee_name = employee_name;
+        this.employee_birthday = employee_birthday;
+        this.employee_email = employee_email;
+        this.employee_address = employee_address;
+    }
+
+    public Employee(String employee_name, String employee_birthday, String employee_email, String employee_address) {
+        this.employee_name = employee_name;
+        this.employee_birthday = employee_birthday;
+        this.employee_email = employee_email;
+        this.employee_address = employee_address;
+    }
+
     public Integer getEmployee_id() {
         return employee_id;
     }
