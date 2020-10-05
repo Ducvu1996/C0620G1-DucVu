@@ -205,7 +205,7 @@
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="get" action="/employee" id="formDelete">
+            <form method="post" action="/employee" id="formDelete">
                 <input type="hidden" name="action" value="delete">
                 <input id="employee_id" type="hidden" name="employee_id" />
                 <div class="modal-header">
@@ -260,7 +260,7 @@
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
 
-    function setEmployeeId(employee_id,user_name) {
+    function setEmployeeId(employee_id) {
         document.getElementById("employee_id").value = employee_id;
 
     }

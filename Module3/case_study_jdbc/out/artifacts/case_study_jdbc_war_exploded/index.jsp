@@ -56,7 +56,7 @@
                 <ul>
                     <li class="active"><a href="./index.html">Home</a></li>
                     <li><a href="/employee">Employees</a></li>
-                    <li><a href="rooms.html">Customers</a></li>
+                    <li><a href="/customer">Customers</a></li>
                     <li><a href="#">Pages</a>
                         <ul class="drop-menu">
                             <li><a href="about-us.html">About Us</a></li>

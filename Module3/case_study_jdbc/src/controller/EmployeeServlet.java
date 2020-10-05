@@ -29,13 +29,13 @@ public class EmployeeServlet extends HttpServlet {
             switch (action) {
                 case "create":
                     insertEmployee(request, response);
-
                     break;
                 case "edit":
                     updateEmployee(request, response);
                     break;
-
-
+                case "delete":
+                    deleteEmployee(request, response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -52,16 +52,10 @@ public class EmployeeServlet extends HttpServlet {
 
         try {
             switch (action) {
-                case "create":
-
-                    break;
                 case "edit":
                     showUpdateForm(request, response);
                     break;
-                case "delete":
 
-                    deleteEmployee(request, response);
-                    break;
                 case "search":
                     searchEmployee(request,response);
                     break;
