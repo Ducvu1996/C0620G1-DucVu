@@ -1,7 +1,11 @@
 package com.bai_tap.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class DictionaryImpl implements Dictionary {
     @Override
+
     public String findWord(String word) {
         String[] vietnamese= { "bạn","tôi","bạn bè","gia đình"};
         String[] english= { "you","I","friends","family"};
