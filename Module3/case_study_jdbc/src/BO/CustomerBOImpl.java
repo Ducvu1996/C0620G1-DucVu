@@ -3,6 +3,7 @@ package BO;
 import DAO.CustomerDAO;
 import DAO.CustomerDAOImpl;
 import model.Customer;
+import model.CustomerType;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class CustomerBOImpl implements CustomerBO {
 
     @Override
     public String save(Customer customer) {
+
         return this.customerDAO.save(customer);
     }
 
@@ -36,5 +38,10 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public List<Customer> findByName(String customer_name) {
         return null;
+    }
+
+    @Override
+    public List<CustomerType> allCustomerType() {
+        return this.customerDAO.allCustomerType();
     }
 }

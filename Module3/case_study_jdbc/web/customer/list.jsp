@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -11,9 +11,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/customer.css">
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="  https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -33,12 +39,25 @@
                         $row.show();
                     }
                 });
+
             });
 
+            let table = $('#customerTable').DataTable({
+                "dom": 'lrtip',
+                "lengthChange":false,
+                "displayLength": 5
+            } );
+
+
+
+
+
         });
+
     </script>
 </head>
-<body onload="setValueNull()" >
+<body>
+
 <div class="container-lg">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -50,7 +69,16 @@
                                 <h2>Customer <b>Details</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addCustomerModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="/" class="btn btn-success"><i class="material-icons">&#xe84f;</i> <span>Home</span></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#addCustomerModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add</span></a>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -64,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped" id="tableEdit">
+            <table class="table table-striped" id="customerTable" >
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -93,9 +121,9 @@
                             </c:if>
                         </td>
                         <td><c:out value="${customer.customer_address}" /></td>
-                        <td><c:out value="${customer.customer_type}" /></td>
+                        <td><c:out value="${customer.customer_type_name}" /></td>
                         <td>
-                            <a data-toggle="modal" data-target="#editCustomerModal"onclick="setCustomerInfor('${customer.customer_id}','${customer.customer_name}','${customer.customer_birthday}','${customer.customer_address}')"  href="#"   class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a data-toggle="modal" data-target="#editCustomerModal"onclick="setCustomerInfor('${customer.customer_id}','${customer.customer_name}','${customer.customer_birthday}','${customer.customer_address}','${customer.customer_type_name}')"  href="#"   class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a data-toggle="modal" data-target="#deleteCustomerModal" href="#" onclick="setCustomerId('${customer.customer_id}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -111,8 +139,8 @@
 <div id="addCustomerModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="/customer" method="post">
-                <input type="hidden" name="action" value="create">
+            <form action="/customer" method="post" id="target">
+                <input type="hidden" name="action"  value="create">
                 <div class="modal-header">
                     <h4 class="modal-title">Add Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -120,11 +148,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="customer_name" class="form-control" required>
+                        <input type="text" name="customer_name" id="name_cus" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Birthday</label>
-                        <input type="date" name="customer_birthday" class="form-control" required>
+                        <input type="date" name="customer_birthday" id="birthday_cus" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
@@ -154,14 +182,16 @@
                     <div class="form-group">
                         <label>Type of Customer</label>
                         <select class="custom-select" name="customer_type">
-                            <option value="1">Diamond</option>
-                            <option value="2">Platinum</option>
+                           <c:forEach var="customerType" items="${customerTypeList}">
+                               <option value="${customerType.getCustomer_type_id()}"> ${customerType.getCustomer_type_name()} </option>
+                           </c:forEach>
+
                         </select>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">Cancel </button>
-                    <button type="submit" class="btn btn-success"  value="Add Customer"> Add Customer</button>
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-success"  value="Add Customer">
                 </div>
             </form>
         </div>
@@ -193,11 +223,19 @@
                         <label>Address</label>
                         <input type="text" id="customer_address"name="customer_address" class="form-control" required>
                     </div>
+                    <div class="form-group">
+                        <label>Type of Customer</label>
+                        <select class="custom-select" name="customer_type">
+                            <c:forEach var="customerType" items="${customerTypeList}">
+                                <option id="${customerType.getCustomer_type_name()}" value="${customerType.getCustomer_type_id()}"> ${customerType.getCustomer_type_name()} </option>
+                            </c:forEach>
+
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                     <input type="submit" class="btn btn-success" value="Edit Customer">
-
                 </div>
             </form>
         </div>
@@ -220,7 +258,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
+                    <input type="submit"  class="btn btn-danger" value="Delete">
                 </div>
             </form>
         </div>
@@ -231,19 +269,20 @@
         document.getElementById("customer_id").value = customer_id;
 
     }
-    function setCustomerInfor(customer_id,customer_name,customer_birthday,customer_address) {
+    function setCustomerInfor(customer_id,customer_name,customer_birthday,customer_address,customer_type_name) {
         document.getElementById("customer_id_edit").value = customer_id;
         document.getElementById("customer_name").value = customer_name;
         document.getElementById("customer_birthday").value = customer_birthday;
         document.getElementById("customer_address").value = customer_address;
-
-
+        document.getElementById(customer_type_name).selected = true;
     }
-    function setValueNull() {
-        $('#addCustomerModal form :input').val("");
-    }
-    //
 
+
+</script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
 </script>
 </body>
 </html>

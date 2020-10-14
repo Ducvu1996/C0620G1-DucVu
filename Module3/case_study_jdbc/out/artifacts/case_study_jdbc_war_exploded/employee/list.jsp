@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -19,9 +19,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/employee.css">
+    <link rel="stylesheet" href="  https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -46,11 +49,21 @@
                     $("#selectAll").prop("checked", false);
                 }
             });
+
+
+            let table = $('#employeeTable').DataTable({
+
+                "lengthChange":false,
+                "displayLength": 5
+
+            } );
+
         });
 
     </script>
 </head>
 <body>
+
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -60,13 +73,14 @@
                         <h2>Manage <b>Employees</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                        <a href="#searchEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xe8b6;</i> <span>Search</span></a>
 
+                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add</span></a>
+                        <a href="#searchEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xe8b6;</i> <span>Search</span></a>
+                        <a href="/" class="btn btn-success"><i class="material-icons">&#xe84f;</i> <span>Home</span></a>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="employeeTable">
                 <thead>
                 <tr>
 
@@ -83,7 +97,7 @@
                 <c:forEach var="employee" items="${listEmployee}">
                     <tr>
                         <td><c:out value="${employee.employee_id}"/></td>
-                        <td><c:out value="${employee.employee_name}"/></td>
+                        <td id="myInput"><c:out value="${employee.employee_name}"/></td>
                         <td><c:out value="${employee.employee_birthday}"/></td>
                         <td><c:out value="${employee.employee_email}"/></td>
                         <td><c:out value="${employee.employee_address}"/></td>
@@ -98,18 +112,7 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <div class="clearfix">
-<%--                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>--%>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Previous</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item "><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
-            </div>
+
         </div>
     </div>
 </div>
@@ -154,25 +157,28 @@
                     </div>
                     <div class="form-group">
                         <label>Position</label>
-                        <select name="position_id">
-                            <option value="1">manager</option>
-                            <option value="2">staff</option>
+                        <select class="custom-select" name="position_id">
+                            <c:forEach var="position" items="${positionList}" >
+                                <option value="${position.getPosition_id()}">${position.getPosition_name()} </option>
+                            </c:forEach>
                         </select>
 
                     </div>
                     <div class="form-group">
                         <label>education degree </label>
-                        <select name="education_degree_id">
-                            <option value="1">doctor</option>
-                            <option value="2">engineer</option>
+                        <select class="custom-select" name="education_degree_id">
+                            <c:forEach var="education_degree" items="${educationDegreeList}" >
+                                <option value="${education_degree.getEducation_degree_id()}">${education_degree.getEducation_degree_name()}</option>
+                            </c:forEach>
                         </select>
 
                     </div>
                     <div class="form-group">
                         <label>Division</label>
-                        <select name="division_id">
-                            <option value="1">reception</option>
-                            <option value="2">system</option>
+                        <select class="custom-select" name="division_id">
+                            <c:forEach var="division" items="${divisionList}" >
+                                <option value="${division.getDivision_id()}"> ${division.getDivision_name()} </option>
+                            </c:forEach>
                         </select>
 
                     </div>
@@ -268,6 +274,11 @@
     // function submitFormDelete() {
     //     document.getElementById("formDelete").submit();
     // }
+</script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
 </script>
 </body>
 </html>

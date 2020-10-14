@@ -5,7 +5,8 @@
   Time: 4:05 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="zxx">
 
 <head>
@@ -54,7 +55,7 @@
             </div>
             <nav class="main-menu mobile-menu">
                 <ul>
-                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li class="active"><a href="/">Home</a></li>
                     <li><a href="/employee">Employees</a></li>
                     <li><a href="/customer">Customers</a></li>
                     <li><a href="#">Pages</a>
@@ -64,7 +65,7 @@
                             <li><a href="services.html">Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="./blog.html">Service</a></li>
+                    <li><a href="/service">Service</a></li>
                     <li><a href="./contact.html">Contract</a></li>
                 </ul>
             </nav>

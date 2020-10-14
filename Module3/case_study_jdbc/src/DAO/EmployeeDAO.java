@@ -1,6 +1,9 @@
 package DAO;
 
+import model.Division;
+import model.EducationDegree;
 import model.Employee;
+import model.Position;
 
 import java.util.List;
 
@@ -11,5 +14,8 @@ public interface EmployeeDAO {
     void update(int id, Employee employee);
     void remove(int id);
     List<Employee> findByName(String employee_name);
+    List<Division> allDivision();
+    List<Position> allPosition();
+    List<EducationDegree> allEducationDegree();
 
 }

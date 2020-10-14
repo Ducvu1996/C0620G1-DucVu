@@ -2,7 +2,10 @@ package controller;
 
 import BO.EmployeeBO;
 import BO.EmployeeBOIplm;
+import model.Division;
+import model.EducationDegree;
 import model.Employee;
+import model.Position;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -108,7 +111,14 @@ public class EmployeeServlet extends HttpServlet {
     private void listEmployee(HttpServletRequest request, HttpServletResponse response)
         throws SQLException, IOException, ServletException {
             List<Employee> listEmployee = employeeBO.findAll();
+            List<Division> divisionList = employeeBO.allDivision();
+            List<Position> positionList = employeeBO.allPosition();
+            List<EducationDegree>  educationDegreeList = employeeBO.allEducationDegree();
+
             request.setAttribute("listEmployee", listEmployee);
+            request.setAttribute("divisionList",divisionList);
+            request.setAttribute("positionList",positionList);
+            request.setAttribute("educationDegreeList",educationDegreeList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("employee/list.jsp");
             dispatcher.forward(request, response);
     }
