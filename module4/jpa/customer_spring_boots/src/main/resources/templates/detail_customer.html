@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detail student</title>
+</head>
+<body>
+    <header th:replace="common::headerCustomer"></header>
+    <p>Id: <span th:text="${customerDetail.customer_id}"></span></p>
+    <p>Name: <span th:text="${customerDetail.customer_name}"></span> </p>
+    <p>Date of birth: <span th:text="${customerDetail.dateOfBirthDay}"></span></p>
+    <footer th:replace="common::footerCustomer"></footer>
+</body>
+</html>
