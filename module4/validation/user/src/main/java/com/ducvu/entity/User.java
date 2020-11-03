@@ -15,7 +15,7 @@ public class User {
     @Size(min=5,max = 45)
     private String lastName;
     @NotBlank
-    @Pattern(regexp="^(09|01[2|6|8|9])+([0-9]{8})\b$", message = "Phone number format is incorrect")
+    @Pattern(regexp="^0(1\\d{9}|9\\d{8})$", message = "Phone number format is incorrect")
     private String phone;
     @NotBlank
     @Email

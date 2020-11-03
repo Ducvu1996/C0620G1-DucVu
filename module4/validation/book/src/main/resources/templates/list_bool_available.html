@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date of birth</th>
+
+        <th>Path variable</th>
+        <th>Update</th>
+    </tr>
+    <th:block th:each="book : ${listBook}">
+        <tr>
+            <td th:text="${book.code}"></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.status}"></td>
+            <td th:text=""></td>
+            <td th:text=""></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
